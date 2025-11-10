@@ -9,7 +9,6 @@ const Home = () => {
             <div className="flex flex-row items-center justify-center min-h-screen w-screen bg-white pt-20">
                 {/* Left Section */}
                 <div className="w-[55%] text-center mx-auto flex flex-col items-center gap-3">
-                    import TextType from './TextType';
                     <TextType
                         text={[
                             `Discover your next cinematic gem with Movli`,
