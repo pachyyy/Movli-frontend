@@ -27,7 +27,7 @@ const Home = () => {
                     </p>
                     <a
                         href="/signup"
-                        className="bg-primary px-6 py-3 rounded-md hover:bg-secondary transition ease-in-out duration-200"
+                        className="bg-primary px-6 py-3 rounded-md hover:translate-y-[-3px] transition ease-in-out duration-200"
                     >
                         <p className="text-light">Start for Free</p>
                     </a>
