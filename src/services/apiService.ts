@@ -21,6 +21,7 @@ export type SavedMovie = {
 };
 
 // The base URL for your Node.js backend API.
+// const API_BASE_URL = 'https://movli-backend.onrender.com';
 const API_BASE_URL = 'https://movli-backend.onrender.com';
 
 // --- Axios instance with Auth ---
@@ -107,6 +108,35 @@ export const updateMovie = async (movieId: string, updates: Partial<SavedMovie>)
         await authedAxios.put(`/api/movies/${movieId}`, updates);
     } catch (error) {
         console.error(`Error updating movie with ID ${movieId}:`, error);
+        throw error;
+    }
+};
+
+/**
+ * Sends a chat message to the backend.
+ * @param prompt The user's message.
+ * @returns The bot's reply.
+ */
+export const sendChatMessage = async (prompt: string): Promise<{ reply: string }> => {
+    try {
+        const response = await authedAxios.post('/api/chat', { prompt });
+        return response.data;
+    } catch (error) {
+        console.error('Error sending chat message:', error);
+        throw error;
+    }
+};
+
+/**
+ * Fetches the user's chat history.
+ * @returns A promise that resolves to an array of chat messages.
+ */
+export const getChatHistory = async (): Promise<{ role: string; content: string }[]> => {
+    try {
+        const response = await authedAxios.get('/api/chat/history');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching chat history:', error);
         throw error;
     }
 };
