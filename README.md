@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+# Movli - Your Movie Search Companion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movli is a web application designed to help you discover movies effortlessly. It allows users to search for movies and access detailed information about them.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Movie Search:** Find movies by title using a comprehensive search functionality.
+-   **TMDB API Integration:** Leverages The Movie Database (TMDB) API to fetch up-to-date movie information, including descriptions, ratings, and more.
 
-## Expanding the ESLint configuration
+## Live Application
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+You can access the live version of Movli at: [movli.netlify.app](https://movli.netlify.app)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Local Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+To run Movli on your local machine, follow these steps:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository:**
+    \`\`\`bash
+    git clone https://github.com/your-username/movli.git
+    cd movli/Movli-frontend
+    \`\`\`
+    (Note: Replace \`https://github.com/your-username/movli.git\` with the actual repository URL if different.)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2.  **Install dependencies:**
+    \`\`\`bash
+    npm install
+    \`\`\`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3.  **Set up environment variables:**
+    Create a \`.env\` file in the \`Movli-frontend\` directory and add your TMDB API key:
+    \`\`\`
+    VITE_TMDB_API_KEY=YOUR_TMDB_API_KEY
+    \`\`\`
+    (You can obtain a TMDB API key from [The Movie Database API](https://www.themoviedb.org/documentation/api) website.)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Run the development server:**
+    \`\`\`bash
+    npm run dev
+    \`\`\`
+
+    This will start the application, and you can access it in your browser, usually at \`http://localhost:5173\`.
